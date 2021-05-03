@@ -26,26 +26,13 @@ public class Usuario {
 	@NotBlank @Size(min=6)
 	private String senha;
 	
+	/*
+	 * usuario é uma string do formato email
+	 * senha no formato limpo!
+	 */
 	public Usuario(@NotBlank @Email String usuario, @NotBlank @Size(min = 6) String senha) {
 		this.usuario = usuario;
 		this.senha = senha;
-	}
-
-	@Override
-	public String toString() {
-		return "Usuario [CriadoEm=" + CriadoEm + ", usuario=" + usuario + ", senha=" + senha + "]";
-	}
-
-	public LocalDateTime getCriadoEm() {
-		return CriadoEm;
-	}
-
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public String getSenha() {
-		return senha;
 	}
 
 	public void cryptSenha() {
