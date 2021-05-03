@@ -7,9 +7,11 @@ import javax.validation.constraints.Size;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
+import br.com.zup.mercadolivre.compartilhado.UniqueValue;
+
 public class UsuarioRequest {
 
-	@NotBlank @Email
+	@NotBlank @Email @UniqueValue(domainClass=Usuario.class, fieldName="usuario")
 	private String usuario;
 	@NotBlank @Size(min=6)
 	private String senha;

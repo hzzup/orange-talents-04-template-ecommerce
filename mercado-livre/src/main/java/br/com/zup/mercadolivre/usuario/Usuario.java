@@ -2,6 +2,7 @@ package br.com.zup.mercadolivre.usuario;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +22,7 @@ public class Usuario {
 	private Long id;
 	@NotNull @PastOrPresent
 	private LocalDateTime CriadoEm = LocalDateTime.now();
-	@NotBlank @Email
+	@NotBlank @Email @Column(unique=true)
 	private String usuario;
 	@NotBlank @Size(min=6)
 	private String senha;
